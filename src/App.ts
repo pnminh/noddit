@@ -1,11 +1,10 @@
+import { RouteConfig } from './config/route-config';
 import express from 'express';
 class App {
   app:express.Express;
   constructor() {
     this.app = express();
-    this.app.use('/',(req:express.Request,res:express.Response,next:express.NextFunction)=>{
-        res.send('Hello World');
-    })
+    RouteConfig.init(this.app);
   }
 }
 export default new App().app;

@@ -7,7 +7,7 @@
     "build": "tsc",
     "test": "export NODE_ENV=test&&jasmine-ts",
     "start": "npm run build && node dist/StartServer.js",
-    "start-watch": "nodemon src/StartServer.js",
+    "start-watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/StartServer.ts",
     "start-local": "ts-node src/StartServer.ts"
   },
   "keywords": [],

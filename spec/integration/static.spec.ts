@@ -1,13 +1,20 @@
-import {Server} from './../../src/Server';
+import { Server } from './../../src/Server';
 import {} from 'jasmine';
 import request from 'request';
 const base = 'http://localhost:3000';
 new Server();
-describe('test', () => {
-  it('test', (done) => {
-    request.get(base,(err:any,res:request.Response,body:any)=>{
+describe('routes : static', () => {
+  //#1
+  describe('GET /', () => {
+    //#2
+    it('should return status code 200', done => {
+      //#3
+      request.get(base, (err, res, body) => {
         expect(res.statusCode).toBe(200);
+        expect(res.body).toContain('Hello World');
+        //#4
         done();
-    })
+      });
+    });
   });
 });
