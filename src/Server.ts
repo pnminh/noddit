@@ -1,7 +1,7 @@
 import app from './App';
 import http from 'http';
 import { AddressInfo } from 'net';
-const PORT = process.env.port||3000;
+const PORT = process.env.PORT||3000;
 export class Server{
   server:http.Server;
   constructor(){
