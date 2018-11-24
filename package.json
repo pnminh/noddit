@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc --version && tsc",
+    "tsc": "./node_modules/typescript/bin/tsc",
     "postinstall": "npm run build",
     "test": "export NODE_ENV=test&&jasmine-ts",
     "start": "node dist/StartServer.js",
