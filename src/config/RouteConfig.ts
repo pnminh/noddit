@@ -1,9 +1,6 @@
-import staticRoutes from '../routes/static';
+import staticRoutes from '../routes/StaticRoute';
 import express from 'express';
 export class RouteConfig {
-  /* constructor(app:express.Express){
-        app.use(staticRoutes);
-    } */
   static init(app: express.Express) {
     app.use(staticRoutes);
   }

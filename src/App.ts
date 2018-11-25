@@ -5,7 +5,7 @@ class App {
   app:express.Express;
   constructor() {
     this.app = express();
-    MainConfig.init();
+    MainConfig.init(this.app);
     RouteConfig.init(this.app);
   }
 }
