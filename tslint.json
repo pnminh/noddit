@@ -1,0 +1,11 @@
+{
+  "linterOptions": {
+      "exclude": ["config/**/*.js", "node_modules/**/*.ts"]
+  },
+  "rules": {
+      "ordered-imports": false,
+      "no-var-requires": false,
+      "no-angle-bracket-type-assertion": false,
+      "object-literal-sort-keys": false
+  }
+}

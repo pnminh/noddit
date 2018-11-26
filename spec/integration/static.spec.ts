@@ -1,8 +1,8 @@
-import { Server } from './../../src/Server';
+import StartServer from '../../src/StartServer';
 import {} from 'jasmine';
 import request from 'request';
 const base = `http://localhost:${process.env.PORT||3000}`;
-new Server();
+const startServer = StartServer;
 describe('routes : static', () => {
   //#1
   describe('GET /', () => {

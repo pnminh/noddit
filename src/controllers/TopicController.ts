@@ -1,10 +1,10 @@
 import express from 'express';
-export class StaticController {
-  indexGet(
+export class TopicController {
+  topicsGet(
     req: express.Request,
     res: express.Response,
     next: express.NextFunction
   ) {
-    res.render('static/index');
+    res.send('Welcome to Topic');
   }
 }
