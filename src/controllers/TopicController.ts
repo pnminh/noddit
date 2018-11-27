@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 export class TopicController {
   topicsGet(
     req: express.Request,

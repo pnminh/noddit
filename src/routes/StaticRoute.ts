@@ -1,5 +1,5 @@
 import { StaticController } from '../controllers/StaticController';
-import express from 'express';
+import * as express from 'express';
 const router = express.Router();
 const staticController = new StaticController();
 router.get('/',staticController.indexGet);

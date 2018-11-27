@@ -1,6 +1,6 @@
 import app from './App';
-import http from 'http';
-import { AddressInfo } from 'net';
+import * as http from 'http';
+import { AddressInfo } from 'dgram';
 const PORT = process.env.PORT||3000;
 export class Server{
   server:http.Server;

@@ -1,0 +1,17 @@
+[{
+   "name": "development",
+   "type": "sqlite",
+   "host": "src/db/sqlite_dbs/dev.db",
+   "port": 3306,
+   "username": "test",
+   "password": "test",
+   "database": "dev"
+}, {
+   "name": "test",
+   "type": "sqlite",
+   "host": "src/db/sqlite_dbs/dev.db",
+   "port": 3306,
+   "username": "test",
+   "password": "test",
+   "database": "test"
+}]

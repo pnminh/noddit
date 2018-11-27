@@ -1,23 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "lib": [
+      "es5",
+      "es6"
+    ],
+    "target": "es5",
     "module": "commonjs",
-    "sourceMap": true,
-    "outDir": "dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "outDir": "./build",
     "emitDecoratorMetadata": true,
-    "strictPropertyInitialization":false,
+    "experimentalDecorators": true,
+    "sourceMap": true
   },
-  "files": [
-    "./node_modules/@types/jasmine/index.d.ts",
-    "./node_modules/@types/node/index.d.ts"
-  ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }

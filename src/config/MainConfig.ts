@@ -1,9 +1,9 @@
-import dotenv from 'dotenv';
-import path from 'path';
-import express from 'express';
+import * as dotenv from 'dotenv';
+import * as path from 'path';
+import * as express from 'express';
 const viewsFolder = path.join(__dirname,"..","views");
 const assetsFolder = path.join(__dirname,"..","assets");
-import fs from 'fs';
+import * as fs from 'fs';
 fs.readdirSync(viewsFolder).forEach(file => {
   console.log(file);
 })
