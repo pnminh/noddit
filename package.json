@@ -5,11 +5,11 @@
    "main": "index.js",
    "scripts": {
       "copy-static": "ncp src build --filter='^[^.]+$|\\.(?!(ts)$)([^.]+$)'",
-      "build": "./node_modules/typescript/bin/tsc&&npm run copy-static",
+      "build": "npm run copy-static && ./node_modules/typescript/bin/tsc",
       "build-webpack": "webpack --config webpack.config.js",
       "postinstall": "npm run build",
       "test": "export NODE_ENV=test&&jasmine-ts",
-      "start": "ts-node src/index.ts",
+      "start": "node build/StartServer.js",
       "start-watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/StartServer.ts",
       "start-local": "ts-node src/StartServer.ts"
    },
