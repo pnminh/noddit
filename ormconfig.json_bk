@@ -1,0 +1,46 @@
+[{
+   "name": "development",
+   "type": "sqlite",
+   "host": "src/db/sqlite_dbs/dev.db",
+   "port": 3306,
+   "username": "test",
+   "password": "test",
+   "database": "dev",
+   "entities": [
+      "dist/db/entity/*.js"
+    ],
+    "subscribers": [
+      "dist/db/subscriber/*.js"
+    ],
+    "migrations": [
+      "dist/db/migration/*.js"
+    ],
+    "cli": {
+      "entitiesDir": "src/db/entity",
+      "migrationsDir": "src/db/migration",
+      "subscribersDir": "src/db/subscriber"
+    }
+
+}, {
+   "name": "test",
+   "type": "sqlite",
+   "host": "src/db/sqlite_dbs/dev.db",
+   "port": 3306,
+   "username": "test",
+   "password": "test",
+   "database": "test",
+   "entities": [
+      "dist/db/entity/*.js"
+    ],
+    "subscribers": [
+      "dist/db/subscriber/*.js"
+    ],
+    "migrations": [
+      "dist/db/migration/*.js"
+    ],
+    "cli": {
+      "entitiesDir": "src/db/entity",
+      "migrationsDir": "src/db/migration",
+      "subscribersDir": "src/db/subscriber"
+    }
+}]

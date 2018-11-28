@@ -4,6 +4,8 @@
    "description": "",
    "main": "index.js",
    "scripts": {
+      "typeorm": "ts-node ./node_modules/.bin/typeorm",
+      "tsc": "tsc",
       "copy-static": "ncp src build --filter='^[^.]+$|\\.(?!(ts)$)([^.]+$)'",
       "build": "npm run copy-static && ./node_modules/typescript/bin/tsc",
       "build-webpack": "webpack --config webpack.config.js",

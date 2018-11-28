@@ -1,17 +1,25 @@
-[{
-   "name": "development",
-   "type": "sqlite",
-   "host": "src/db/sqlite_dbs/dev.db",
-   "port": 3306,
-   "username": "test",
-   "password": "test",
-   "database": "dev"
-}, {
-   "name": "test",
-   "type": "sqlite",
-   "host": "src/db/sqlite_dbs/dev.db",
-   "port": 3306,
-   "username": "test",
-   "password": "test",
-   "database": "test"
-}]
+{
+  "name": "default",
+  "type": "sqlite",
+  "host": "src/db/sqlite_dbs/dev.db",
+  "port": 3306,
+  "username": "test",
+  "password": "test",
+  "database": "dev",
+  "entities": [
+    "src/db/entity/*.ts"
+  ],
+  "subscribers": [
+    "src/db/subscriber/*.ts"
+  ],
+  "migrations": [
+    "src/db/migration/*.ts"
+  ],
+  "cli": {
+    "entitiesDir": "src/db/entity",
+    "migrationsDir": "src/db/migration",
+    "subscribersDir": "src/db/subscriber"
+  },
+  "synchronize": false,
+  "migrationsRun": true
+}
