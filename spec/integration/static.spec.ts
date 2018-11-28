@@ -1,6 +1,6 @@
 import StartServer from '../../src/StartServer';
 import {} from 'jasmine';
-import request from 'request';
+import * as request from 'request';
 const base = `http://localhost:${process.env.PORT||3000}`;
 const startServer = StartServer;
 describe('routes : static', () => {
