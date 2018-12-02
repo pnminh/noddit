@@ -1,22 +1,22 @@
-import { Repository } from 'typeorm';
+import { getConnection, Repository, Connection } from 'typeorm';
 
 import { RepositoryConfig } from './../config/RepositoryConfig';
 import { Banner } from './../db/entity/Banner';
 
 export class BannerRepository {
-  bannerRepository: Repository<Banner>;
-  async initialize() {
-    if (!this.bannerRepository) {
-      const connection = await RepositoryConfig.setup();
-      this.bannerRepository = connection.getRepository(Banner);
+  BannerRepository: Repository<Banner>;
+  initialize = async () => {
+    if (!this.BannerRepository) {
+        let connection:Connection = await RepositoryConfig.setup();
+      this.BannerRepository = connection.getRepository(Banner);
     }
-  }
-  async getAll(): Promise<Banner[]> {
+  };
+  getAll = async (): Promise<Banner[]> => {
     await this.initialize();
-    return this.bannerRepository.find();
-  }
-  async getById(id: number): Promise<Banner> {
+    return this.BannerRepository.find();
+  };
+  getById = async (id: number): Promise<Banner> => {
     await this.initialize();
-    return this.bannerRepository.findOne(id);
-  }
+    return this.BannerRepository.findOne(id);
+  };
 }

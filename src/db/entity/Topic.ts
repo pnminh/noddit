@@ -4,6 +4,10 @@ import { Banner } from './Banner';
 
 @Entity()
 export class Topic {
+  constructor(title: string, description: string) {
+    this.title = title;
+    this.description = description;
+  }
   @PrimaryGeneratedColumn()
   id: number;
 

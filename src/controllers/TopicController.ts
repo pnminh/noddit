@@ -1,6 +1,7 @@
 import { TopicRepository } from './../repositories/TopicRepository';
 import * as express from 'express';
 import { Topic } from '../db/entity/Topic';
+
 export class TopicController {
   topicRepository: TopicRepository = new TopicRepository();
   topicsGet = async (
@@ -8,12 +9,8 @@ export class TopicController {
     res: express.Response,
     next: express.NextFunction
   ) => {
-    try {
-      const topics: Topic[] = await this.topicRepository.getAll();
-      res.send(topics);
-    } catch (e) {
-      next(e);
-    }
+    const topics: Topic[] = await this.topicRepository.getAll();
+    res.render('topics/index', { topics });
   };
   getData = async (): Promise<string> => {
     return Promise.resolve('Hello Topic');

@@ -1,22 +1,27 @@
-import { Repository } from 'typeorm';
+import { Repository, getConnection, Connection } from 'typeorm';
 
 import { RepositoryConfig } from './../config/RepositoryConfig';
 import { Topic } from './../db/entity/Topic';
 
 export class TopicRepository {
-  TopicRepository: Repository<Topic>;
+  topicRepository: Repository<Topic>;
+
   initialize = async () => {
-    if (!this.TopicRepository) {
-      const connection = await RepositoryConfig.setup();
-      this.TopicRepository = connection.getRepository(Topic);
+    if (!this.topicRepository) {
+      let connection:Connection = await RepositoryConfig.setup();
+      this.topicRepository = connection.getRepository(Topic);
     }
   };
   getAll = async (): Promise<Topic[]> => {
     await this.initialize();
-    return this.TopicRepository.find();
+    return this.topicRepository.find();
   };
   getById = async (id: number): Promise<Topic> => {
     await this.initialize();
-    return this.TopicRepository.findOne(id);
+    return this.topicRepository.findOne(id);
+  };
+  create = async (topic: Topic): Promise<Topic> => {
+    await this.initialize();
+    return this.topicRepository.save(topic);
   };
 }
