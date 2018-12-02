@@ -5,3 +5,10 @@ Steps to run this project:
 1. Run `npm i` command
 2. Setup database settings inside `ormconfig.json` file
 3. Run `npm start` command
+
+To run migration:
+1. In development environment:
+a. run yarn typeorm cli as we run directly .ts files (https://github.com/typeorm/typeorm/issues/1675)
+    e.g yarn typeorm  migration:run -c test => run migration against test connection
+2. In production:
+run heroku run typeorm, e.g heroku run typeorm migration:run -c production
