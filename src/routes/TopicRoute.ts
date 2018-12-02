@@ -1,4 +1,4 @@
-import { ExpressUtils } from './../../utils/ExpressUtils';
+import { ExpressUtils } from './../utils/ExpressUtils';
 import * as express from 'express';
 
 import { TopicController } from './../controllers/TopicController';
