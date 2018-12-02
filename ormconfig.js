@@ -57,15 +57,15 @@ module.exports = [{
             "build/db/entity/*.js"
         ],
         "subscribers": [
-            "src/db/subscriber/*.js"
+            "build/db/subscriber/*.js"
         ],
         "migrations": [
-            "src/db/migration/*.js"
+            "build/db/migration/*.js"
         ],
         "cli": {
-            "entitiesDir": "src/db/entity",
-            "migrationsDir": "src/db/migration",
-            "subscribersDir": "src/db/subscriber"
+            "entitiesDir": "build/db/entity",
+            "migrationsDir": "build/db/migration",
+            "subscribersDir": "build/db/subscriber"
         }
     }
 ]
