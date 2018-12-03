@@ -12,3 +12,5 @@ a. run yarn typeorm cli as we run directly .ts files (https://github.com/typeorm
     e.g yarn typeorm  migration:run -c test => run migration against test connection
 2. In production:
 run heroku run typeorm, e.g heroku run typeorm migration:run -c production
+3. Run seed file:
+heroku run node build/db/seeds/CreateTopics.js
