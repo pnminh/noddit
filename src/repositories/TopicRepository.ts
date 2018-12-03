@@ -25,12 +25,6 @@ export class TopicRepository {
       return this.topicRepository.findOne(id, { relations: ['posts'] });
     }
   };
-  getByIdWithPosts = async (id: number): Promise<Topic> => {
-    let topic = await this.getById(id);
-    //let posts = await this.postRepostory.getByTopicId(id);
-    //topic.posts = posts;
-    return topic;
-  };
   getByTitle = async (title: string): Promise<Topic> => {
     await this.initialize();
     return this.topicRepository.findOne({ where: { title: title } });

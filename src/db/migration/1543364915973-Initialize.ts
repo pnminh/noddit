@@ -7,15 +7,15 @@ export class Initialize1543364915973 implements MigrationInterface {
         `CREATE TABLE "topic" ("id" SERIAL PRIMARY KEY NOT NULL, "title" varchar NOT NULL, "description" varchar NOT NULL)`
       );
       await queryRunner.query(
-        `CREATE TABLE "banner" ("id" SERIAL PRIMARY KEY NOT NULL, "source" varchar NOT NULL, "description" varchar NOT NULL, "topicId" integer, CONSTRAINT "FK_218d44aa86e285ebd6a2f34950b" FOREIGN KEY ("topicId") REFERENCES "topic" ("id"))`
+        `CREATE TABLE "post" ("id" SERIAL PRIMARY KEY NOT NULL, "title" varchar NOT NULL, "body" varchar NOT NULL, "topicId" integer, CONSTRAINT "FK_96496a94cfa49a06d6d802c0dea" FOREIGN KEY ("topicId") REFERENCES "topic" ("id"))`
       );
-    }else{
-        await queryRunner.query(
-            `CREATE TABLE "topic" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "description" varchar NOT NULL)`
-          );
-          await queryRunner.query(
-            `CREATE TABLE "banner" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "source" varchar NOT NULL, "description" varchar NOT NULL, "topicId" integer, CONSTRAINT "FK_218d44aa86e285ebd6a2f34950b" FOREIGN KEY ("topicId") REFERENCES "topic" ("id"))`
-          );
+    } else {
+      await queryRunner.query(
+        `CREATE TABLE "topic" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "description" varchar NOT NULL)`
+      );
+      await queryRunner.query(
+        `CREATE TABLE "post" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "body" varchar NOT NULL, "topicId" integer, CONSTRAINT "FK_96496a94cfa49a06d6d802c0dea" FOREIGN KEY ("topicId") REFERENCES "topic" ("id"))`
+      );
     }
   }
 

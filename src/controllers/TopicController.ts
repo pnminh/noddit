@@ -41,7 +41,7 @@ export class TopicController {
   ) => {
     try {
       let topicId: number = req.params.id;
-      let topic = await this.topicRepository.getById(topicId);
+      let topic = await this.topicRepository.getById(topicId, true);
       if (topic) {
         res.render('topics/show', { topic });
         return;

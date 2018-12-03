@@ -23,7 +23,6 @@ describe('routes : topics', () => {
     //#2
     it('should return status code 200 and all topics', async done => {
       request.get(base, (err, res, body) => {
-        console.log(`res:${body}`);
         expect(res.statusCode).toBe(200);
         expect(err).toBeNull();
         expect(body).toContain('Topics');
