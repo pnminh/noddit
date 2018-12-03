@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-import { Banner } from './Banner';
+import { Post } from './Post';
 
 @Entity()
 export class Topic {
@@ -18,6 +18,6 @@ export class Topic {
   @Column()
   description: string;
 
-  @OneToMany(type => Banner, banner => banner.topic)
-  banners: Banner[];
+  @OneToMany(type => Post, post => post.topic)
+  posts: Post[];
 }

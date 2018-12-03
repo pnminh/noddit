@@ -8,7 +8,6 @@ const startServer = StartServer;
 const base = `http://localhost:${process.env.PORT || 3000}/topics`;
 
 describe('routes : topics', () => {
-  console.log('test test');
   let topicRepository = new TopicRepository();
   let topic: Topic;
   beforeEach(async () => {
