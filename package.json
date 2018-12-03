@@ -29,7 +29,6 @@
       "@types/sequelize": "^4.27.32",
       "copy-webpack-plugin": "^4.6.0",
       "cpx": "^1.5.0",
-      "faker": "^4.1.0",
       "jasmine": "^3.3.0",
       "jasmine-ts": "^0.3.0",
       "ncp": "^2.0.0",
@@ -51,6 +50,7 @@
       "pg-hstore": "^2.3.2",
       "reflect-metadata": "^0.1.10",
       "sqlite3": "^4.0.4",
-      "typeorm": "0.2.9"
+      "typeorm": "0.2.9",
+      "faker": "^4.1.0"
    }
 }

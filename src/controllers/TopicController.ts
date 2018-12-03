@@ -1,6 +1,7 @@
-import { TopicRepository } from './../repositories/TopicRepository';
 import * as express from 'express';
+
 import { Topic } from '../db/entity/Topic';
+import { TopicRepository } from './../repositories/TopicRepository';
 
 export class TopicController {
   topicRepository: TopicRepository = new TopicRepository();
