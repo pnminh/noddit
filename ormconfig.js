@@ -43,7 +43,8 @@ module.exports = [{
             "subscribersDir": "src/db/subscriber"
         },
         "synchronize": false,
-        "migrationsRun": true
+        "migrationsRun": true,
+        "logging": true
     },
     {
         "name": "production",

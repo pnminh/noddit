@@ -1,4 +1,4 @@
-import { getConnection, Repository, Connection } from 'typeorm';
+import { Connection, Repository } from 'typeorm';
 
 import { RepositoryConfig } from '../config/RepositoryConfig';
 import { Post } from '../db/entity/Post';
@@ -15,6 +15,13 @@ export class PostRepository {
     await this.initialize();
     return this.postRepository.find();
   };
+  getByTopicId = async (topicId: number): Promise<Post[]> => {
+    await this.initialize();
+    return this.postRepository
+      .createQueryBuilder('post')
+      .where('post.topicId = :topicId', { topicId: topicId })
+      .getMany();
+  };
   getById = async (id: number): Promise<Post> => {
     await this.initialize();
     return this.postRepository.findOne(id);
@@ -25,6 +32,7 @@ export class PostRepository {
   };
   create = async (post: Post): Promise<Post> => {
     if (post.id) {
+      console.log(`postId is ${post.id}`)
       let topic = await this.getById(post.id);
       if (topic) {
         throw Error('Topic already exists');

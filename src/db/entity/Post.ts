@@ -20,8 +20,9 @@ export class Post {
   @IsNotEmpty()
   body: string;
 
-  @ManyToOne(type => Topic, {
-    cascade: ['insert', 'remove'],
+  @ManyToOne(type => Topic, topic => topic.posts, {
+    //insert cascade cause the foreign key set to null, probably a bug
+    cascade: ['remove'],
     eager: true
   })
   topic: Topic;

@@ -2,10 +2,11 @@ import { Connection, Repository } from 'typeorm';
 
 import { RepositoryConfig } from './../config/RepositoryConfig';
 import { Topic } from './../db/entity/Topic';
+import { PostRepository } from './PostRepository';
 
 export class TopicRepository {
   topicRepository: Repository<Topic>;
-
+  postRepostory: PostRepository = new PostRepository();
   initialize = async () => {
     if (!this.topicRepository) {
       let connection: Connection = await RepositoryConfig.setup();
@@ -16,9 +17,19 @@ export class TopicRepository {
     await this.initialize();
     return this.topicRepository.find();
   };
-  getById = async (id: number): Promise<Topic> => {
+  getById = async (id: number, eager: boolean = false): Promise<Topic> => {
     await this.initialize();
-    return this.topicRepository.findOne(id);
+    if (!eager) {
+      return this.topicRepository.findOne(id);
+    } else {
+      return this.topicRepository.findOne(id, { relations: ['posts'] });
+    }
+  };
+  getByIdWithPosts = async (id: number): Promise<Topic> => {
+    let topic = await this.getById(id);
+    //let posts = await this.postRepostory.getByTopicId(id);
+    //topic.posts = posts;
+    return topic;
   };
   getByTitle = async (title: string): Promise<Topic> => {
     await this.initialize();
