@@ -1,4 +1,3 @@
-
 module.exports = [{
         "name": "development",
         "type": "sqlite",
@@ -20,7 +19,8 @@ module.exports = [{
             "subscribersDir": "src/db/subscriber"
         },
         "synchronize": false,
-        "migrationsRun": true
+        "migrationsRun": true,
+        "logging": true
     },
     {
         "name": "test",
@@ -44,7 +44,7 @@ module.exports = [{
         },
         "synchronize": false,
         "migrationsRun": true,
-        "logging": true
+        "logging": false
     },
     {
         "name": "production",
