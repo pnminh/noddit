@@ -92,7 +92,7 @@ export class TopicController {
     try {
       let topic = new Topic(req.body.title, req.body.description);
       topic.id = req.params.id;
-      topic = await this.topicRepository.update(topic);
+      await this.topicRepository.update(topic);
       res.redirect(303, `/topics/${topic.id}`);
     } catch (err) {
       console.log('error when updating topic', err);

@@ -14,7 +14,7 @@ export class PostController {
     next: express.NextFunction
   ) => {
     const posts: Post[] = await this.postRepository.getAll();
-    res.render('posts/index', { posts });
+    res.render('posts/index', { posts: posts, topicId: req.params.topicId });
   };
   postGet = async (
     req: express.Request,
@@ -25,7 +25,7 @@ export class PostController {
       let postId: number = req.params.id;
       let post = await this.postRepository.getById(postId);
       if (post) {
-        res.render('posts/show', { post });
+        res.render('posts/show', { post: post, topicId: req.params.topicId });
         return;
       }
     } catch (err) {
@@ -51,7 +51,7 @@ export class PostController {
       if (topic) {
         let post = new Post(req.body.title, req.body.body, topic);
         post = await this.postRepository.create(post);
-        res.redirect(303, `/topics/${req.params.topicId}/post/${post.id}`);
+        res.redirect(303, `/topics/${req.params.topicId}/posts/${post.id}`);
         return;
       }
       res.redirect(404, `/topics/${req.params.topicId}/posts/new`);
@@ -81,7 +81,7 @@ export class PostController {
     try {
       let post = await this.postRepository.getById(req.params.id);
       if (post) {
-        res.render(`posts/edit`, { post });
+          res.render(`posts/edit`, { post: post, topicId: req.params.topicId });
         return;
       }
     } catch (err) {

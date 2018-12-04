@@ -39,9 +39,10 @@ export class TopicRepository {
   };
   update = async (topicToUpdate: Topic) => {
     await this.initialize();
-    let topic = await this.topicRepository.findOne(topicToUpdate.id);
-    topic.title = topicToUpdate.title;
-    topic.description = topicToUpdate.description;
-    return this.topicRepository.save(topic);
+    this.topicRepository.createQueryBuilder()
+    .update(Topic)
+    .set({ title: topicToUpdate.title, description: topicToUpdate.description })
+    .where("id = :id", { id: topicToUpdate.id })
+    .execute();
   };
 }
