@@ -17,10 +17,10 @@ export class Topic {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ nullable: false })
   title: string;
 
-  @Column()
+  @Column({ nullable: false })
   description: string;
 
   @OneToMany(type => Post, post => post.topic)

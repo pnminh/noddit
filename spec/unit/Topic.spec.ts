@@ -57,11 +57,11 @@ describe('Post', () => {
         new Post(
           'My first visit to Proxima Centauri b',
           'I saw some rocks.',
-          testTopic
+          testTopic.id
         )
       );
       await postRepository.create(
-        new Post('My 2nd visit to the Centauri', 'I saw aliens', testTopic)
+        new Post('My 2nd visit to the Centauri', 'I saw aliens', testTopic.id)
       );
       testTopic = await topicRepository.getById(testTopic.id,true);
       expect(testTopic.posts.length).toBe(2);
@@ -79,7 +79,7 @@ describe('Post', () => {
         new Post(
           'My first visit to Proxima Centauri b',
           'I saw some rocks.',
-          testTopic
+          testTopic.id
         )
       );
     

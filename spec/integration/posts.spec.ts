@@ -20,7 +20,7 @@ describe('routes : topics', () => {
       new Topic('Winter Games', 'Post your Winter Games stories.')
     );
     post = await postRepository.create(
-      new Post('Snowball Fighting', 'So much snow!', topic)
+      new Post('Snowball Fighting', 'So much snow!', topic.id)
     );
   });
   afterAll(async () => {
@@ -70,6 +70,28 @@ describe('routes : topics', () => {
           expect(post.topic).not.toBeNull();
           done();
         } catch (err) {
+          console.log(err);
+          done();
+        }
+      });
+    });
+    it('should not create a new post that fails validations', async done => {
+      const options = {
+        url: `${base}/${topic.id}/posts/create`,
+        form: {
+          //#1
+          title: 'a',
+          body: 'b'
+        }
+      };
+
+      request.post(options, async (err, res, body) => {
+        //#2
+        try{
+        let testedPost = await postRepository.getByTitle('a');
+        expect(testedPost).toBeFalsy();
+        done();
+        }catch(err){
           console.log(err);
           done();
         }

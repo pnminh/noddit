@@ -21,7 +21,7 @@ describe('Post', () => {
       new Post(
         'My first visit to Proxima Centauri b',
         'I saw some rocks.',
-        topic
+        topic.id
       )
     );
   });
@@ -47,7 +47,7 @@ describe('Post', () => {
         new Post(
           'Pros of Cryosleep during the long journey',
           "1. Not having to answer the 'are we there yet?' question.",
-          topic
+          topic.id
         )
       );
       expect(testedPost.title).toBe(
@@ -56,13 +56,13 @@ describe('Post', () => {
       expect(testedPost.body).toBe(
         "1. Not having to answer the 'are we there yet?' question."
       );
-      expect(testedPost.topic).toBe(topic);
+      expect(testedPost.topicId).toBe(topic.id);
       done();
     });
   });
   describe('#setTopic()', () => {
     it('should associate a topic and a post together', async done => {
-      expect(post.topic.id).toBe(topic.id);
+      expect(post.topicId).toBe(topic.id);
       let newTopic = await topicRepository.create(
         new Topic(
           'Challenges of interstellar travel',
@@ -94,11 +94,11 @@ describe('Post', () => {
         new Post(
           'My first visit to Proxima Centauri b',
           'I saw some rocks.',
-          testTopic
+          testTopic.id
         )
       );
       await postRepository.create(
-        new Post('My 2nd visit to the Centauri', 'I saw aliens', testTopic)
+        new Post('My 2nd visit to the Centauri', 'I saw aliens', testTopic.id)
       );
       let testedPosts = await postRepository.getByTopicId(testTopic.id);
       expect(testedPosts.length).toBe(2);

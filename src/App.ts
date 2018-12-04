@@ -1,6 +1,6 @@
 import { MainConfig } from './config/MainConfig';
 import { RouteConfig } from './config/RouteConfig';
-import * as express from 'express';
+import express from 'express';
 class App {
   app:express.Express;
   constructor() {

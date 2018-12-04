@@ -49,7 +49,7 @@ export class PostController {
     try {
       let topic: Topic = await this.topicRepository.getById(req.params.topicId);
       if (topic) {
-        let post = new Post(req.body.title, req.body.body, topic);
+        let post = new Post(req.body.title, req.body.body, topic.id);
         post = await this.postRepository.create(post);
         res.redirect(303, `/topics/${req.params.topicId}/posts/${post.id}`);
         return;

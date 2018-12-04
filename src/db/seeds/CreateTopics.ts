@@ -12,7 +12,7 @@ createConnection(env)
       topic = await connection.getRepository(Topic).save(topic);
       if (topic.id % 2) {
         for (let i = 1; i <= 5; i++) {
-          let post = new Post(Faker.name.title(), Faker.hacker.phrase(), topic);
+          let post = new Post(Faker.name.title(), Faker.hacker.phrase(), topic.id);
           await connection.getRepository(Post).save(post);
         }
       }

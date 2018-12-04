@@ -2,6 +2,7 @@ import { ExpressUtils } from './../utils/ExpressUtils';
 import * as express from 'express';
 
 import { PostController } from './../controllers/PostController';
+import {validatePosts} from './Validator';
 const router = express.Router();
 const postController = new PostController();
 //asyncMiddleware helps to resolve result and catch error for promise
@@ -12,7 +13,7 @@ router.get(
   ExpressUtils.asyncMiddleware(postController.postNew)
 );
 router.post(
-  '/topics/:topicId/posts/create',
+  '/topics/:topicId/posts/create',validatePosts,
   ExpressUtils.asyncMiddleware(postController.postCreate)
 );
 router.get(
@@ -28,7 +29,7 @@ router.get(
   ExpressUtils.asyncMiddleware(postController.postEdit)
 );
 router.post(
-  '/topics/:topicId/posts/:id/update',
+  '/topics/:topicId/posts/:id/update',validatePosts,
   ExpressUtils.asyncMiddleware(postController.postUpdate)
 );
 export default router;
