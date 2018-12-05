@@ -7,6 +7,7 @@ class App {
     this.app = express();
     MainConfig.init(this.app);
     RouteConfig.init(this.app);
+    
   }
 }
 export default new App().app;

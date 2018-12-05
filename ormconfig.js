@@ -44,7 +44,7 @@ module.exports = [{
         },
         "synchronize": false,
         "migrationsRun": true,
-        "logging": false
+        "logging": true
     },
     {
         "name": "production",

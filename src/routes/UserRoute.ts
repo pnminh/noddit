@@ -1,0 +1,11 @@
+import { UserController } from '../controllers/UserController';
+import * as express from 'express';
+import { validateUsers } from './Validator';
+const router = express.Router();
+const userController = new UserController();
+router.get('/users/sign_up', userController.signupGet);
+router.post('/users', validateUsers, userController.create);
+router.get('/users/sign_in', userController.signInGet);
+router.post('/users/sign_in', validateUsers, userController.signInPost);
+router.get('/users/sign_out', userController.signOut);
+export default router;

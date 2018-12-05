@@ -1,3 +1,4 @@
+import { PassportConfig } from './PassportConfig';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 import * as express from 'express';
@@ -23,9 +24,21 @@ export class MainConfig {
         secret: process.env.cookieSecret,
         resave: false,
         saveUninitialized: false,
-        cookie: { maxAge: 60000 }
+        cookie: { maxAge: 1.21e+9 } //set cookie to expire in 14 days
       })
     );
     app.use(flash());
+    PassportConfig.init(app);
+    app.use(
+      (
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction
+      ) => {
+        //make user available to the response and its template
+        res.locals.currentUser = req.user;
+        next();
+      }
+    );
   }
 }
